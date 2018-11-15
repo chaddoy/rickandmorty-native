@@ -1,8 +1,8 @@
 import React from 'react';
 import { Font, AppLoading } from 'expo';
-import { View, StatusBar, Image } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import {
-  Container, Button, Text,
+  Container, Card, CardItem, Thumbnail, Text, Left, Body, Right, Icon,
 } from 'native-base';
 
 import Roboto from 'native-base/Fonts/Roboto.ttf';
@@ -34,7 +34,7 @@ export default class App extends React.Component {
     }
 
     return (
-      <Container style={{ backgroundColor: '#181818' }}>
+      <Container style={{ backgroundColor: '#4D4669' }}>
         <StatusBar
           barStyle="light-content"
         />
@@ -45,30 +45,40 @@ export default class App extends React.Component {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'stretch',
-            alignSelf: 'center',
+            marginLeft: 40,
+            marginRight: 40,
           }}
         >
-          <View
+          <Card>
+            <CardItem>
+              <Left>
+                <Thumbnail source={HomeRickMorty} />
+                <Body>
+                  <Text>Characters</Text>
+                </Body>
+              </Left>
+              <Right>
+                <Icon name="arrow-right" type="Feather" />
+              </Right>
+            </CardItem>
+          </Card>
+          <Card
             style={{
-              width: 180,
-              height: 180,
+              borderRadius: 10,
             }}
           >
-            <Image
-              style={{ flex: 1, height: undefined, width: undefined }}
-              resizeMode="contain"
-              source={HomeRickMorty}
-            />
-          </View>
-
-          <View
-            style={{
-              alignSelf: 'center',
-              marginTop: 20,
-            }}
-          >
-            <Button success><Text>EXPLORE</Text></Button>
-          </View>
+            <CardItem>
+              <Left>
+                <Thumbnail source={HomeRickMorty} />
+                <Body>
+                  <Text>Locations</Text>
+                </Body>
+              </Left>
+              <Right>
+                <Icon name="arrow-right" type="Feather" />
+              </Right>
+            </CardItem>
+          </Card>
         </View>
       </Container>
     );
